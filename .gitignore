@@ -1,0 +1,4 @@
+node_modules
+dist
+src/utils/config.js
+.DS_Store
