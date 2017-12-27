@@ -31,12 +31,29 @@ export default function Search({
           value={input}
           onChange={onChange}
         />
-        <Link to="/forecast">
-          <button type="button" className="btn btn-success">
-            Get Weather
-          </button>
+        <Link
+          className="btn btn-success"
+          to={{
+            pathname: '/forecast',
+            search: `?city=${ input }`,
+          }}
+        >
+          Get Weather
         </Link>
       </div>
     </div>
   );
 }
+// <Link
+// className="button"
+// to={{
+//   pathname: `${ match.url }/results`,
+//   search: `?playerOneName=${ playerOneName }&playerTwoName=${ playerTwoName }`,
+// }}
+// >
+
+// <Link to="/forecast">
+//           <button type="button" className="btn btn-success">
+//             Get Weather
+//           </button>
+//         </Link>
