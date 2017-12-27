@@ -12,6 +12,12 @@ a {
   text-decoration: none;
 }
 
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .navbar {
   background: rgb(252, 103, 17);
   padding: 4px;
@@ -39,6 +45,11 @@ a {
   &:active {
     border: none;
   }
+}
+
+.btn-failure {
+  background-color: rgb(252, 103, 17);
+  border: 1px solid #fff;
 }
 
 .form-control {

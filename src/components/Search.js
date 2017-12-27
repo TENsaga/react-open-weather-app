@@ -33,10 +33,12 @@ export default function Search({
         />
         <Link
           className="btn btn-success"
-          to={{
-            pathname: '/forecast',
-            search: `?city=${ input }`,
-          }}
+          to={
+            input && {
+              pathname: '/forecast',
+              search: `?city=${ input }`,
+            }
+          }
         >
           Get Weather
         </Link>

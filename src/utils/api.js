@@ -5,15 +5,16 @@ export function fetchApiData() {
   console.log('test');
 }
 
-export function forecast() {
-  const cityName = 'Comox';
-  const apiCall = `http://api.openweathermap.org/data/2.5/forecast/daily?q=${ cityName }&type=accurate&APPID=${ APIKEY }&cnt=5&units=metric`;
+export function forecast(city) {
+  const encodedURI = window.encodeURI(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${ city }&type=accurate&APPID=${ APIKEY }&cnt=5&units=metric`);
+  console.log(`API CALL TO URL: ${ encodedURI }`);
 
-  axios
-    .get(apiCall)
-    .then((response) => {
-      console.log(JSON.stringify(response, null, 2));
-    });
+  return axios.get(encodedURI).then(response => response.data).catch(error => handleError(error));
+}
+
+function handleError(error) {
+  console.log(error.message);
+  return null;
 }
 
 // CURRNET: http://api.openweathermap.org/data/2.5/weather?q=CITY-NAME&type=accurate&APPID=YOUR-API-KEY
