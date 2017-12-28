@@ -40,7 +40,7 @@ a {
   background-color: #5cb85c;
   border-color: #4cae4c;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 600;
   cursor: pointer;
   &:active {
     border: none;
@@ -67,7 +67,6 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   .zipcode-container {
     display: flex;
     flex-direction: column;
@@ -78,6 +77,29 @@ a {
     font-size: 45px;
     font-weight: 100;
   }
+}
+
+h1.header.header-special {
+  display: flex;
+  padding: 6px;
+  font-size: 85px;
+  justify-content: center;
+}
+
+.forecast-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  .weather-img {
+    height: 75%;
+    width: 75%;
+  }
+}
+
+.forecast-item {
+  padding: 4px;
+  margin: 10px 10px;
 }
 
 // Loading Page

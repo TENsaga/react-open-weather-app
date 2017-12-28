@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -42,6 +43,7 @@ const config = {
   plugins: [
     new ExtractTextPlugin({ filename: 'index_bundle.css' }),
     new HtmlWebpackPlugin({ template: 'src/index.html' }),
+    new CopyWebpackPlugin([ { from: 'src/images/weather-icons', to: 'images' } ]),
   ],
 };
 
