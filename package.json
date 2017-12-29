@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cross-env NODE_ENV=development webpack-dev-server --inline --content-base build/ --port 8100 ",
     "build.dev": "cross-env NODE_ENV=development webpack --display-error-details --config webpack.config.js",
-    "build.prod": "cross-env NODE_ENV=production webpack --config webpack.config.js -p"
+    "build.prod": "cross-env NODE_ENV=production webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -50,6 +50,7 @@
     "prop-types": "^15.6.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
+    "uglifyjs-webpack-plugin": "^1.1.5",
     "url-loader": "^0.6.2",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.7"

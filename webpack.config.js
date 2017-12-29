@@ -40,6 +40,7 @@ const config = {
   devServer: {
     historyApiFallback: true,
   },
+  devtool: 'source-map',
   plugins: [
     new ExtractTextPlugin({ filename: 'index_bundle.css' }),
     new HtmlWebpackPlugin({ template: 'src/index.html' }),
@@ -54,7 +55,25 @@ if (process.env.NODE_ENV === 'production') {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+      beautify: false,
+      comments: false,
+      compress: {
+        warnings: false,
+        drop_console: true,
+        screw_ie8: true,
+      },
+      mangle: {
+        except: [ '$', 'webpackJsonp' ],
+        screw_ie8: true,
+        keep_fnames: true,
+      },
+      output: {
+        comments: false,
+        screw_ie8: true,
+      },
+    }),
   );
 }
 
