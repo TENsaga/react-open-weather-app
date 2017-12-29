@@ -6,22 +6,20 @@ Search.propTypes = {
   input: string,
   onChange: func.isRequired,
   title: string,
-  containerClass: string,
   titleClass: string,
 };
 
 Search.defaultProps = {
   input: '',
   title: null,
-  containerClass: null,
   titleClass: null,
 };
 
 export default function Search({
-  title, containerClass, titleClass, input, onChange,
+  title, titleClass, input, onChange,
 }) {
   return (
-    <div className={containerClass}>
+    <div>
       <h1 className={titleClass}>{title}</h1>
       <div className="zipcode-container">
         <input
@@ -46,16 +44,3 @@ export default function Search({
     </div>
   );
 }
-// <Link
-// className="button"
-// to={{
-//   pathname: `${ match.url }/results`,
-//   search: `?playerOneName=${ playerOneName }&playerTwoName=${ playerTwoName }`,
-// }}
-// >
-
-// <Link to="/forecast">
-//           <button type="button" className="btn btn-success">
-//             Get Weather
-//           </button>
-//         </Link>
