@@ -1,16 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string } from 'prop-types';
 import Moment from 'react-moment';
 
-const Forecast = ({ date, icon }) => (
-  <div className="forecast-item">
-    <img className="weather-img" src={icon} alt="Weather Icon" />
-    <h1 className="header">
-      <Moment format="YYYY/MM/DD">{date}</Moment>
-    </h1>
-  </div>
-);
+Forecast.propTypes = {
+  date: string.isRequired,
+  icon: string.isRequired,
+};
 
-Forecast.propTypes = {};
-
-export default Forecast;
+export default function Forecast({ date, icon }) {
+  return (
+    <div className="forecast-item">
+      <img className="weather-img" src={icon} alt="Weather Icon" />
+      <h1 className="header">
+        <Moment format="YYYY/MM/DD">{date}</Moment>
+      </h1>
+    </div>
+  );
+}
