@@ -8,7 +8,7 @@ Error.propTypes = {
 
 export default function Error({ error }) {
   return (
-    <div className="column">
+    <div className="column home-container">
       <h1 className="header">{error}</h1>
       <Link to="/" className="btn btn-failure">
         Try another search

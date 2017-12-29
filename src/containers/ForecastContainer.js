@@ -48,8 +48,8 @@ export default class ForecastContainer extends Component {
     console.log(days);
     return (
       <div>
-        <h1 className="header header-special">{name}</h1>
         <div className="forecast-container">
+          <h1 className="header header-special">{name}</h1>
           {days}
           {JSON.stringify(this.state.data, null, 2)}
         </div>

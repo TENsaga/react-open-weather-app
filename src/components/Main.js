@@ -7,7 +7,7 @@ import ResultsContainer from '../containers/ResultsContainer';
 
 export default function Main() {
   return (
-    <div className="home-container">
+    <div className="main">
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/forecast" component={ResultsContainer} />

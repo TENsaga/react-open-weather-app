@@ -2,6 +2,10 @@ import React from 'react';
 
 import SearchContainer from '../containers/SearchContainer';
 
-const Home = () => <SearchContainer title="Enter a City and State" titleClass="header" />;
+const Home = () => (
+  <div className="home-container">
+    <SearchContainer title="Enter a City and State" titleClass="header" />
+  </div>
+);
 
 export default Home;
