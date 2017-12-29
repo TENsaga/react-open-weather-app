@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const OptimizeCSSAssets = require('optimize-css-assets-webpack-plugin');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -11,6 +12,11 @@ const config = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index_bundle.js',
     publicPath: '/',
+  },
+  resolve: {
+    alias: {
+      images: path.resolve(__dirname, 'src/images'),
+    },
   },
   module: {
     rules: [
@@ -74,6 +80,7 @@ if (process.env.NODE_ENV === 'production') {
         screw_ie8: true,
       },
     }),
+    new OptimizeCSSAssets(),
   );
 }
 
