@@ -15,13 +15,18 @@ a {
 .navbar {
   background: rgb(252, 103, 17);
   padding: 4px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  .nav-header {
+    text-align: left;
+  }
   h1 {
     color: #fff;
     text-align: center;
   }
   div {
     display: flex;
-    justify-content: space-between;
     align-items: center;
   }
   input {

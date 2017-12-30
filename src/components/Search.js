@@ -5,22 +5,17 @@ import { Link } from 'react-router-dom';
 Search.propTypes = {
   input: string,
   onChange: func.isRequired,
-  title: string,
-  titleClass: string,
 };
 
 Search.defaultProps = {
   input: '',
-  title: null,
-  titleClass: null,
 };
 
 export default function Search({
-  title, titleClass, input, onChange,
+  input, onChange,
 }) {
   return (
     <div>
-      <h1 className={titleClass}>{title}</h1>
       <div className="zipcode-container">
         <input
           type="text"

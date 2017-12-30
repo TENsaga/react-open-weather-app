@@ -11,6 +11,7 @@ export default function forecast(city) {
   return axios
     .get(encodedURI)
     .then(response => response.data)
+    .then(x => new Promise(resolve => setTimeout(() => resolve(x), 1200)))
     .catch(error => handleError(error));
 }
 
