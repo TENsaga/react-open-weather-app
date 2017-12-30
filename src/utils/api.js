@@ -1,12 +1,8 @@
 import axios from 'axios';
 import { APIKEY } from './config';
 
-// export function fetchApiData() {
-//   console.log('test');
-// }
-
-export default function forecast(city) {
-  const encodedURI = window.encodeURI(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${ city }&type=accurate&APPID=${ APIKEY }&cnt=5&units=metric`);
+export default function forecast(input) {
+  const encodedURI = buildURI(formatInput(input));
 
   return axios
     .get(encodedURI)
@@ -15,13 +11,15 @@ export default function forecast(city) {
     .catch(error => handleError(error));
 }
 
+export function formatInput(input) {
+  return input.split(/[,.]|\s/).filter(val => val);
+}
+
+export function buildURI(formattedInput) {
+  return window.encodeURI(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${ formattedInput }&type=accurate&APPID=${ APIKEY }&cnt=5&units=metric`);
+}
+
 function handleError(error) {
   console.log(error.message);
   return null;
 }
-
-// CURRNET: http://api.openweathermap.org/data/2.5/weather?q=CITY-NAME&type=accurate&APPID=YOUR-API-KEY
-
-// 5 DAY W: http://api.openweathermap.org/data/2.5/forecast/daily?q=CITY-NAME&type=accurate&APPID=YOUR-API-KEY&cnt=5
-
-// Example: api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=52a13c2fb2ddedfbfe235b78fc29414f

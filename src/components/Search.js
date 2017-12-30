@@ -20,7 +20,7 @@ export default function Search({
         <input
           type="text"
           className="form-control"
-          placeholder="St. George, Utah"
+          placeholder="Victoria, CA"
           value={input}
           onChange={onChange}
         />

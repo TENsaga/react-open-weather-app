@@ -4,7 +4,7 @@ import SearchContainer from '../containers/SearchContainer';
 
 const Home = () => (
   <div className="home-container">
-    <h1 className="header">Enter a City and State</h1>
+    <h1 className="header">Enter a City and optional Country Code</h1>
     <SearchContainer />
   </div>
 );
