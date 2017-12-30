@@ -107,6 +107,9 @@ a {
       justify-content: center;
     }
   }
+  a {
+    display: flex;
+  }
   h1:first-child {
    flex: 0 1 100%;
    display: flex;
@@ -121,6 +124,11 @@ a {
   .forecast-item {
     padding: 4px;
     margin: 10px 10px;
+    text-align: center;
+  }
+  .sub-header {
+    font-size: 30px;
+    color: #333;
   }
 }
 

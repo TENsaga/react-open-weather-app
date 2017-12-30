@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { object } from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import Forecast from '../components/Forecast';
 import importAll from '../helpers/index';
@@ -30,16 +31,23 @@ export default class ForecastContainer extends Component {
   generateForecast() {
     console.log(this.state);
     const { days } = this.state;
-    return days.map(day =>
-      // console.log(`DT: ${ day.dt }`);
-      // console.log(`ICON: ${ day.weather[ 0 ].icon }`);
-      (
+    return days.map(day => (
+      <Link
+        key={`link-${ day.dt }`}
+        to={{
+          pathname: `/details/${ this.state.name }`,
+          state: {
+            day,
+          },
+        }}
+      >
         <Forecast
           key={day.dt}
           date={this.generateDate({ utcSeconds: day.dt })}
           icon={this.generateIconURL({ iconId: day.weather[ 0 ].icon })}
         />
-      ));
+      </Link>
+    ));
   }
 
   render() {
