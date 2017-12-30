@@ -2,20 +2,12 @@ import React, { Component } from 'react';
 import { object } from 'prop-types';
 
 import Forecast from '../components/Forecast';
+import importAll from '../helpers/index';
 
 export default class ForecastContainer extends Component {
   static propTypes = {
     data: object.isRequired,
   };
-
-  generateDate(utcSeconds) {
-    return new Date(utcSeconds * 1000);
-  }
-
-  generateIconURL(icon) {
-    const image = require(`../images/weather-icons/${ icon }.svg`);
-    return image;
-  }
 
   constructor(props) {
     super(props);
@@ -24,22 +16,30 @@ export default class ForecastContainer extends Component {
       name,
       days,
     };
+    this.icons = importAll(require.context('../images/weather-icons', false, /\.svg$/));
+  }
+
+  generateDate({ utcSeconds }) {
+    return new Date(utcSeconds * 1000);
+  }
+
+  generateIconURL({ iconId }) {
+    return this.icons[ `${ iconId }.svg` ];
   }
 
   generateForecast() {
     console.log(this.state);
     const { days } = this.state;
-    return days.map((day) => {
-      console.log(`DT: ${ day.dt }`);
-      console.log(`ICON: ${ day.weather[ 0 ].icon }`);
-      return (
+    return days.map(day =>
+      // console.log(`DT: ${ day.dt }`);
+      // console.log(`ICON: ${ day.weather[ 0 ].icon }`);
+      (
         <Forecast
           key={day.dt}
-          date={this.generateDate(day.dt)}
-          icon={this.generateIconURL(day.weather[ 0 ].icon)}
+          date={this.generateDate({ utcSeconds: day.dt })}
+          icon={this.generateIconURL({ iconId: day.weather[ 0 ].icon })}
         />
-      );
-    });
+      ));
   }
 
   render() {

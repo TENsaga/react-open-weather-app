@@ -1,15 +1,17 @@
 import axios from 'axios';
 import { APIKEY } from './config';
 
-export function fetchApiData() {
-  console.log('test');
-}
+// export function fetchApiData() {
+//   console.log('test');
+// }
 
 export function forecast(city) {
   const encodedURI = window.encodeURI(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${ city }&type=accurate&APPID=${ APIKEY }&cnt=5&units=metric`);
-  console.log(`API CALL TO URL: ${ encodedURI }`);
 
-  return axios.get(encodedURI).then(response => response.data).catch(error => handleError(error));
+  return axios
+    .get(encodedURI)
+    .then(response => response.data)
+    .catch(error => handleError(error));
 }
 
 function handleError(error) {

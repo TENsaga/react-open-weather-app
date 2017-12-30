@@ -1,9 +1,9 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { string, instanceOf } from 'prop-types';
 import Moment from 'react-moment';
 
 Forecast.propTypes = {
-  date: string.isRequired,
+  date: instanceOf(Date).isRequired,
   icon: string.isRequired,
 };
 
