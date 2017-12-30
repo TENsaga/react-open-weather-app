@@ -61,7 +61,13 @@ a {
   &:active {
     border: none;
   }
+  &.btn-disable {
+    opacity: 0.85;
+    cursor: not-allowed;
+  }
 }
+
+
 
 .btn-failure {
   background-color: rgb(252, 103, 17);

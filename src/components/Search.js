@@ -11,31 +11,27 @@ Search.defaultProps = {
   input: '',
 };
 
-export default function Search({
-  input, onChange,
-}) {
+export default function Search({ input, onChange }) {
   return (
-    <div>
-      <div className="zipcode-container">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Victoria, CA"
-          value={input}
-          onChange={onChange}
-        />
-        <Link
-          className="btn btn-success"
-          to={
-            input && {
-              pathname: '/forecast',
-              search: `?city=${ input }`,
-            }
+    <div className="zipcode-container">
+      <input
+        type="text"
+        className="form-control"
+        placeholder="Victoria, CA"
+        value={input}
+        onChange={onChange}
+      />
+      <Link
+        className={input ? 'btn' : 'btn btn-disable'}
+        to={
+          input && {
+            pathname: '/forecast',
+            search: `?city=${ input }`,
           }
-        >
-          Get Weather
-        </Link>
-      </div>
+        }
+      >
+        Get Weather
+      </Link>
     </div>
   );
 }
