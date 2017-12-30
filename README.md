@@ -1,3 +1,7 @@
+## TENsaga/Aspen Swanson's run through of Tyler McGinnis' React Fundamentals Course
+
+#### Final project with minimal guidance, extra pieces, and additional changes to reinforce material
+
 <img src="https://tylermcginnis.com/tylermcginnis_glasses-300.png" width="300" align="right">
 
 Curriculum for React Fundamentals Course
