@@ -27,17 +27,13 @@ export default class ForecastContainer extends Component {
     return countryObj.find(country => country.code === countryCode).name;
   }
 
-  generateIconURL({ iconId }) {
-    return this.icons[ `${ iconId }.svg` ];
-  }
+  generateIconURL = ({ iconId }) => this.icons[ `${ iconId }.svg` ];
 
-  generateDate(utcSeconds) {
-    return new Date(utcSeconds * 1000);
-  }
+  generateDate = utcSeconds => new Date(utcSeconds * 1000);
 
-  generateForecast() {
-    const { name, country } = this.state;
-    return this.state.days.map((day) => {
+  buildForecastComponents() {
+    const { name, country, days } = this.state;
+    return days.map((day) => {
       const utcSeconds = day.dt;
       const date = this.generateDate(utcSeconds);
       const icon = this.generateIconURL({ iconId: day.weather[ 0 ].icon });
@@ -63,12 +59,12 @@ export default class ForecastContainer extends Component {
 
   render() {
     const { name, country } = this.state;
-    const days = this.generateForecast();
+    const forecastDays = this.buildForecastComponents();
     return (
       <div className="forecast-container">
         <h1 className="header header-special">{name}</h1>
         <h2 className="header country-header">{country}</h2>
-        {days}
+        {forecastDays}
       </div>
     );
   }
