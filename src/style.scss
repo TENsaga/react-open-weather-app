@@ -95,12 +95,14 @@ a {
   }
 }
 
+// POSSIBLE FIX FOR FORECAST CONTAINER:
+
 .forecast-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 3rem;
+  justify-content: space-around;
+  padding: 2rem;
   // Center content when on smaller devices (avoids ugly single pane sidebar
   @media screen and (max-width: 480px) {
     & {
@@ -115,22 +117,48 @@ a {
    display: flex;
    justify-content: center;
    font-size: 85px;
+   margin-bottom: 0
   }
+  h2 {
+    flex: 0 1 100%;
+   }
   .weather-img {
     height: 100%;
-    width: 100%;
-    margin-bottom: -2rem;
+    width: 75%;
   }
   .forecast-item {
     padding: 4px;
     margin: 10px 10px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
   }
-  .sub-header {
+  .sub-header, .country-header {
     font-size: 30px;
     color: #333;
+    text-align: center;
   }
 }
+
+// Forecast Details
+
+.details-container {
+  width: 100%;
+  .details-list-container {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-size: 32px;
+    text-align: center;
+    font-weight: 300;
+  }
+  li {
+    padding: 15px;
+  }
+}
+
 
 // Loading Page
 

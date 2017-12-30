@@ -5,7 +5,7 @@ import { APIKEY } from './config';
 //   console.log('test');
 // }
 
-export function forecast(city) {
+export default function forecast(city) {
   const encodedURI = window.encodeURI(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${ city }&type=accurate&APPID=${ APIKEY }&cnt=5&units=metric`);
 
   return axios

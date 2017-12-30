@@ -6,7 +6,7 @@ import Loading from '../components/Loading';
 import Error from '../components/Error';
 import ForecastContainer from './ForecastContainer';
 
-import { forecast } from '../utils/api';
+import forecast from '../utils/api';
 
 class ResultsContainer extends Component {
   static propTypes = {
