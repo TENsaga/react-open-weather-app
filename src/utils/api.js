@@ -16,7 +16,7 @@ export function formatInput(input) {
 }
 
 export function buildURI(formattedInput) {
-  return window.encodeURI(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${ formattedInput }&type=accurate&APPID=${ APIKEY }&cnt=5&units=metric`);
+  return window.encodeURI(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${ formattedInput }&APPID=${ APIKEY }&cnt=5&units=metric`);
 }
 
 function handleError(error) {

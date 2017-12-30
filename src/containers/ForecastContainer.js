@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Forecast from '../components/Forecast';
 import importAll from '../helpers/index';
-import countryObj from '../data/country-codes';
+import countryObj from '../data/a2-country-codes';
 
 export default class ForecastContainer extends Component {
   static propTypes = {
