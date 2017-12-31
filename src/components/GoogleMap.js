@@ -6,7 +6,7 @@ import { GMAPAPIKEY } from '../utils/config';
 
 import marker from '../images/marker.png';
 
-SimpleMap.propTypes = {
+GoogleMap.propTypes = {
   lat: number.isRequired,
   lon: number.isRequired,
 };
@@ -17,7 +17,7 @@ const MapMarker = () => (
   </div>
 );
 
-export default function SimpleMap({ lat, lon: lng }) {
+export default function GoogleMap({ lat, lon: lng }) {
   return (
     <GoogleMapReact
       bootstrapURLKeys={{

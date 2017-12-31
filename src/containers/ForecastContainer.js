@@ -1,36 +1,43 @@
 import React, { Component } from 'react';
-import { object } from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import Forecast from '../components/Forecast';
 import importAll from '../helpers/index';
 import countryObj from '../data/a2-country-codes';
-import SimpleMap from '../components/GoogleMap';
+import GoogleMap from '../components/GoogleMap';
 
 export default class ForecastContainer extends Component {
-  static propTypes = {
-    data: object.isRequired,
+  state = {
+    name: null,
+    lat: null,
+    lon: null,
+    country: null,
+    days: null,
   };
 
-  constructor(props) {
-    super(props);
-    const {
-      city: { name, country: countryCode, coord: { lat, lon } },
-      list: days,
-    } = this.props.data;
+  componentWillMount() {
+    this.updateData(this.props);
+    this.icons = importAll(require.context('../images/weather-icons', false, /\.svg$/));
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.updateData(nextProps);
+  }
+
+  getCountry(countryCode) {
+    return countryObj.find(country => country.code === countryCode).name;
+  }
+
+  updateData({ data }) {
+    const { city: { name, country: countryCode, coord: { lat, lon } }, list: days } = data;
     const country = this.getCountry(countryCode);
-    this.state = {
+    this.setState({
       name,
       lat,
       lon,
       country,
       days,
-    };
-    this.icons = importAll(require.context('../images/weather-icons', false, /\.svg$/));
-  }
-
-  getCountry(countryCode) {
-    return countryObj.find(country => country.code === countryCode).name;
+    });
   }
 
   generateIconURL = ({ iconId }) => this.icons[ `${ iconId }.svg` ];
@@ -73,7 +80,7 @@ export default class ForecastContainer extends Component {
         <h1 className="header header-special">{name}</h1>
         <h2 className="header country-header">{country}</h2>
         <div className="map-top-container">
-          <SimpleMap lat={lat} lon={lon} />
+          <GoogleMap lat={lat} lon={lon} />
         </div>
         {forecastDays}
       </div>

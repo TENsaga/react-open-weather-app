@@ -22,7 +22,18 @@ class ResultsContainer extends Component {
   };
 
   componentDidMount = () => {
-    const { city } = queryString.parse(this.props.location.search);
+    this.updateData();
+  };
+
+  componentWillReceiveProps = (nextProps) => {
+    const { city } = queryString.parse(nextProps.location.search);
+    const { city: oldCity } = queryString.parse(this.props.location.search);
+    if (city !== oldCity) {
+      this.updateData({ city });
+    }
+  };
+
+  updateData = ({ city } = queryString.parse(this.props.location.search)) => {
     forecast(city).then((data) => {
       if (!data) {
         this.setState({
