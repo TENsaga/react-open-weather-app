@@ -1,5 +1,4 @@
 node_modules
-dist
 src/utils/config.js
 src/utils/example.json
 .DS_Store
