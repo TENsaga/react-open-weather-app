@@ -48,6 +48,8 @@ export default class ForecastContainer extends Component {
     const { name, country, days } = this.state;
     return days.map((day) => {
       const utcSeconds = day.dt;
+      const maxTemp = Math.round(day.temp.max);
+      const minTemp = Math.round(day.temp.min);
       const date = this.generateDate(utcSeconds);
       const icon = this.generateIconURL({ iconId: day.weather[ 0 ].icon });
       return (
@@ -60,11 +62,15 @@ export default class ForecastContainer extends Component {
               date,
               icon,
               name,
+              maxTemp,
+              minTemp,
               country,
             },
           }}
         >
-          <Forecast key={utcSeconds} date={date} icon={icon} />
+          <Forecast key={utcSeconds} date={date} icon={icon}>
+            <h1 className="header sub-header forecast-sub">{maxTemp} ºC</h1>
+          </Forecast>
         </Link>
       );
     });

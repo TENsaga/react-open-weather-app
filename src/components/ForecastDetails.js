@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, instanceOf, object, shape } from 'prop-types';
+import { string, number, instanceOf, object, shape } from 'prop-types';
 
 import Forecast from './Forecast';
 
@@ -10,6 +10,8 @@ ForecastDetails.propTypes = {
       date: instanceOf(Date).isRequired,
       icon: string.isRequired,
       name: string.isRequired,
+      maxTemp: number.isRequired,
+      minTemp: number.isRequired,
       country: string.isRequired,
     }).isRequired,
   }).isRequired,
@@ -17,7 +19,7 @@ ForecastDetails.propTypes = {
 
 export default function ForecastDetails(props) {
   const {
-    day, date, icon, name, country,
+    day, date, icon, name, maxTemp, minTemp, country,
   } = props.location.state;
   const details = (
     <div className="details-container">
@@ -26,8 +28,8 @@ export default function ForecastDetails(props) {
           {name}, {country}
         </li>
         <li>{day.weather[ 0 ].description}</li>
-        <li>min temp: {day.temp.min} ºC</li>
-        <li>max temp: {day.temp.max} ºC</li>
+        <li>max: {maxTemp} ºC</li>
+        <li>min: {minTemp} ºC</li>
         <li>humidity: {day.humidity}</li>
       </ul>
     </div>
