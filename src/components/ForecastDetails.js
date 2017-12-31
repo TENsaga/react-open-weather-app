@@ -22,7 +22,9 @@ export default function ForecastDetails(props) {
   const details = (
     <div className="details-container">
       <ul className="details-list-container">
-        <li>{name}, {country}</li>
+        <li>
+          {name}, {country}
+        </li>
         <li>{day.weather[ 0 ].description}</li>
         <li>min temp: {day.temp.min} ºC</li>
         <li>max temp: {day.temp.max} ºC</li>
@@ -31,10 +33,12 @@ export default function ForecastDetails(props) {
     </div>
   );
   return (
-    <div className="forecast-container">
-      <Forecast key={date} date={date} icon={icon}>
-        {details}
-      </Forecast>
+    <div className="details-top-container">
+      <div className="forecast-container">
+        <Forecast key={date} date={date} icon={icon}>
+          {details}
+        </Forecast>
+      </div>
     </div>
   );
 }

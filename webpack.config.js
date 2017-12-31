@@ -38,7 +38,7 @@ const config = {
         }),
       },
       {
-        test: /\.(ttf|otf|eot|svg|woff|woff2?)(\?.+)?$/,
+        test: /\.(ttf|otf|eot|svg|woff|woff2|png?)(\?.+)?$/,
         loader: 'file-loader',
       },
     ],

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Forecast from '../components/Forecast';
 import importAll from '../helpers/index';
 import countryObj from '../data/a2-country-codes';
+import SimpleMap from '../components/GoogleMap';
 
 export default class ForecastContainer extends Component {
   static propTypes = {
@@ -13,10 +14,15 @@ export default class ForecastContainer extends Component {
 
   constructor(props) {
     super(props);
-    const { city: { name, country: countryCode }, list: days } = this.props.data;
+    const {
+      city: { name, country: countryCode, coord: { lat, lon } },
+      list: days,
+    } = this.props.data;
     const country = this.getCountry(countryCode);
     this.state = {
       name,
+      lat,
+      lon,
       country,
       days,
     };
@@ -58,12 +64,17 @@ export default class ForecastContainer extends Component {
   }
 
   render() {
-    const { name, country } = this.state;
+    const {
+      name, country, lat, lon,
+    } = this.state;
     const forecastDays = this.buildForecastComponents();
     return (
       <div className="forecast-container">
         <h1 className="header header-special">{name}</h1>
         <h2 className="header country-header">{country}</h2>
+        <div className="map-top-container">
+          <SimpleMap lat={lat} lon={lon} />
+        </div>
         {forecastDays}
       </div>
     );

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { APIKEY } from './config';
+import { OPENWEATHERAPIKEY } from './config';
 
 export default function forecast(input) {
   const encodedURI = buildURI(formatInput(input));
@@ -16,7 +16,7 @@ export function formatInput(input) {
 }
 
 export function buildURI(formattedInput) {
-  return window.encodeURI(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${ formattedInput }&APPID=${ APIKEY }&cnt=5&units=metric`);
+  return window.encodeURI(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${ formattedInput }&APPID=${ OPENWEATHERAPIKEY }&cnt=5&units=metric`);
 }
 
 function handleError(error) {
