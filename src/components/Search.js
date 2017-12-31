@@ -11,7 +11,8 @@ Search.defaultProps = {
   input: '',
 };
 
-export default function Search({ input, onChange }) {
+export default function Search(props) {
+  const { input, onChange } = props;
   return (
     <div className="zipcode-container">
       <input

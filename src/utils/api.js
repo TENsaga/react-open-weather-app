@@ -3,7 +3,6 @@ import { OPENWEATHERAPIKEY } from './config';
 
 export default function forecast(input) {
   const encodedURI = buildURI(formatInput(input));
-
   return axios
     .get(encodedURI)
     .then(response => response.data)
