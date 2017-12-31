@@ -14,10 +14,10 @@ Search.defaultProps = {
 export default function Search(props) {
   const { input, onChange } = props;
   return (
-    <div className="zipcode-container">
+    <div className="search-container">
       <input
         type="text"
-        className="form-control"
+        className="search-input"
         placeholder="Victoria, CA"
         value={input}
         onChange={onChange}

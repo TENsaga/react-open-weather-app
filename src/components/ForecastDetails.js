@@ -37,7 +37,7 @@ export default function ForecastDetails(props) {
   return (
     <div className="details-top-container">
       <div className="forecast-container">
-        <Forecast key={date} date={date} icon={icon}>
+        <Forecast date={date} icon={icon}>
           {details}
         </Forecast>
       </div>

@@ -5,7 +5,6 @@ import Main from './Main';
 
 import '../style.scss';
 
-// Parent: Entry - index.js, Children: Popular
 const App = () => (
   <div className="app-container">
     <Navbar />

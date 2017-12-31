@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { OPENWEATHERAPIKEY } from './config';
 
+// Added timeout to Keep Loading visible longer than a milisecond, replace with animation in future
 export default function forecast(input) {
   const encodedURI = buildURI(formatInput(input));
   return axios

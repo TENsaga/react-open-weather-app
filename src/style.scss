@@ -59,7 +59,7 @@ a {
     h1 {
       margin: 20px auto;
     }
-    .zipcode-container {
+    .search-container {
       display: none;
     }
   }
@@ -95,7 +95,7 @@ a {
 
 // Input field
 
-.form-control {
+.search-input {
   border: 1px inset rgb(231, 221, 221);
   height: 34px;
   width: 196px;
@@ -115,7 +115,7 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  .zipcode-container {
+  .search-container {
     display: flex;
     flex-direction: column;
     align-items: center;

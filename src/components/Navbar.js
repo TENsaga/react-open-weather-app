@@ -8,7 +8,7 @@ const Navbar = () => (
     <Link to="/">
       <h1 className="nav-header">Open Weather Forecast</h1>
     </Link>
-    <SearchContainer title="Open Weather Forecast" />
+    <SearchContainer />
   </div>
 );
 
